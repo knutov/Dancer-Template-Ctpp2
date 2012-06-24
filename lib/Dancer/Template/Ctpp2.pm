@@ -138,6 +138,7 @@ L<Dancer>, L<HTML::CTPP2>
 =head1 AUTHOR
  
 Maxim Nikolenko, C<< <mephist@cpan.org> >>
+Nick Knutov, C<< <nick@knutov.com> >>
  
 =head1 SUPPORT
 
