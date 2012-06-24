@@ -5,11 +5,13 @@ use warnings;
 use Dancer::Config 'setting';
 use Dancer::ModuleLoader;
 use Dancer::FileUtils 'path';
-use String::SetUTF8;
+# use String::SetUTF8;
+use Encode;
+use utf8;
 
 use base 'Dancer::Template::Abstract';
 
-our $VERSION = '0.03';
+our $VERSION = '0.05-dev';
 
 our $_ctpp2;
 our %_cfg;
@@ -72,7 +74,7 @@ sub render($$$) {
 	return '<font color="red"><b>[template '.$template.' error]</b></font>' 
 		if not $result and $_cfg{graceful_error}; 
 		
-	setUTF8($result) 
+	Encode::_utf8_on($result)
 		if length(setting('charset')) && lc setting('charset') eq 'utf-8';
 
 	return $result || '';
